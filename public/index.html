@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Deux élèves ont disparu devant PMF. Quatre caméras ont tout filmé. Les agentes Zeineb et Lemis enquêtent. Chkoun khtafhom ?">
+<meta name="theme-color" content="#0b0d0a">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Affaire Sneaky &amp; Mergueza">
+<meta property="og:description" content="Deux élèves disparus devant PMF. Quatre caméras. Une question : chkoun khtafhom ? Viens voter.">
+<meta property="og:url" content="__SITE_URL__/">
+<meta property="og:image" content="__SITE_URL__/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="__SITE_URL__/og.jpg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Affaire Sneaky &amp; Mergueza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700;900&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&family=Reem+Kufi:wght@700&family=VT323&display=swap">
+<style>
+html{-webkit-text-size-adjust:100%}
+[hidden]{display:none!important}
+/* Layout : le site se lit comme une enquête. Salle des caméras → PV → avis de recherche → relecture NVR → QG → scellés → tapissage (vote) → agentes.
+   Un seul monde, la nuit, assumé : surfaces papier, liège et mur de tapissage posées sur la console. */
+:root{
+  --night:#0b0d0a; --console:#141811; --console-2:#1b2017; --line:#2d3528;
+  --tape:#fedd04; --tape-ink:#111210;
+  --phosphor:#d6ecca; --muted:#919c89;
+  --manila:#d9bd82; --paper:#f3ecda; --ink:#1d1b16; --ink-soft:#5e5749; --biro:#23408e;
+  --stamp:#d21f2e; --stamp-dark:#7c0f18; --pin-hi:#ff7a7a;
+  --cork:#a9794a; --cork-dark:#7f5730; --postit:#f4e07c; --rule-blue:#a8bddc;
+  --wall:#c9cdc2; --wall-line:#7d8475;
+  --plastic:#e9ece5; --plastic-edge:#bfc6ba;
+  --scrim:rgba(5,6,5,.9); --shade:rgba(0,0,0,.55);
+  --noise:none;
+  --f-display:"Big Shoulders Stencil Display","Impact","Arial Narrow",sans-serif;
+  --f-type:"Courier Prime","Courier New",ui-monospace,monospace;
+  --f-cctv:"VT323",ui-monospace,"Courier New",monospace;
+  --f-hand:"Permanent Marker","Marker Felt","Comic Sans MS",cursive;
+  --f-ar:"Reem Kufi","Noto Kufi Arabic","Geeza Pro","Arial",sans-serif;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--night);color:var(--phosphor);font:16px/1.55 var(--f-type);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+button{font:inherit;color:inherit;cursor:pointer}
+button:disabled{cursor:not-allowed}
+:focus-visible{outline:3px dashed var(--tape);outline-offset:3px}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+.ar{font-family:var(--f-ar);font-weight:700;letter-spacing:0}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:16px}
+@media (min-width:720px){.wrap{padding-inline:32px}}
+.sec{position:relative;padding-block:clamp(60px,9vw,108px)}
+.kicker{display:flex;align-items:center;gap:.5em;margin:0 0 .5rem;font-family:var(--f-cctv);font-size:1.2rem;line-height:1;letter-spacing:.14em;text-transform:uppercase;color:var(--tape)}
+.kicker::before{content:"";width:.55em;height:.55em;background:currentColor;flex:none}
+.h-section{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(2.5rem,10vw,4.8rem);line-height:.88;letter-spacing:.01em;color:var(--paper)}
+.intro{max-width:58ch;margin-top:1rem;color:var(--muted)}
+
+/* ---------- radio ticker ---------- */
+.ticker{display:flex;background:var(--console);border-bottom:1px solid var(--line);font-family:var(--f-cctv);font-size:1.2rem;line-height:1;color:var(--tape)}
+.ticker-label{flex:none;display:flex;align-items:center;gap:.45em;background:var(--stamp);color:var(--paper);padding:.45rem .75rem;letter-spacing:.12em}
+.ticker-view{flex:1;min-width:0;overflow:hidden;display:flex;align-items:center}
+.ticker-track{display:flex;white-space:nowrap;animation:tick 55s linear infinite}
+.ticker-track > span{padding-right:2.5rem}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- hero : salle de surveillance ---------- */
+.hero{position:relative;overflow:hidden;padding-block:clamp(84px,9vw,118px) 124px;background:radial-gradient(120% 90% at 78% 0%,var(--console-2),var(--night) 72%)}
+.hero-grid{display:grid;gap:30px;align-items:end}
+@media (min-width:960px){.hero-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:44px}}
+.nvr-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem 1.1rem;margin-bottom:26px;font-family:var(--f-cctv);font-size:1.15rem;line-height:1.1;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.nvr-bar .clock{color:var(--phosphor);font-variant-numeric:tabular-nums}
+.rec{display:inline-flex;align-items:center;gap:.35em;color:var(--stamp)}
+.rec i{width:.62em;height:.62em;border-radius:50%;background:currentColor;animation:blink 1.1s infinite}
+@keyframes blink{0%,55%{opacity:1}56%,100%{opacity:.15}}
+.badge-cvl{width:clamp(118px,26vw,168px);margin-bottom:18px}
+.dossier{font-family:var(--f-type);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1.title{margin-top:.35rem;font-family:var(--f-display);font-weight:900;text-transform:uppercase;color:var(--paper);font-size:clamp(3.4rem,16vw,7.4rem);line-height:.84;letter-spacing:.005em}
+@media (min-width:960px){h1.title{font-size:clamp(4rem,7.2vw,6.6rem)}}
+h1.title .amp{color:var(--tape)}
+.lede{max-width:44ch;margin-top:1.3rem;font-size:1.06rem;color:var(--phosphor)}
+.lede strong{color:var(--tape);font-weight:700}
+.monitors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:8px;background:var(--console);border:1px solid var(--line);border-radius:6px;box-shadow:0 34px 60px -24px var(--shade)}
+.feed{position:relative;display:block;width:100%;padding:0;border:0;border-radius:2px;background:var(--tape-ink);aspect-ratio:16/9;max-width:100%;overflow:hidden;text-align:left}
+.feed img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) contrast(1.08) brightness(.92);transition:transform .45s ease,filter .45s ease}
+.feed:hover img,.feed:focus-visible img{transform:scale(1.05);filter:saturate(.95) contrast(1.12) brightness(1)}
+.feed::after,.nvr-screen::after,.lab-screen::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;background:repeating-linear-gradient(to bottom,rgba(0,0,0,.2) 0 1px,transparent 1px 3px),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.5))}
+.grain{position:absolute;inset:-50%;z-index:1;pointer-events:none;background-image:var(--noise);opacity:.08;animation:grain .45s steps(3) infinite}
+@keyframes grain{0%{transform:translate(0,0)}33%{transform:translate(-6%,4%)}66%{transform:translate(5%,-5%)}100%{transform:translate(-3%,6%)}}
+.feed-rec{position:absolute;top:5px;right:7px;z-index:3;font-family:var(--f-cctv);font-size:1rem;line-height:1}
+.feed-tag{position:absolute;left:0;bottom:0;z-index:3;padding:.15em .55em .15em .45em;background:var(--shade);font-family:var(--f-cctv);font-size:clamp(.9rem,2.7vw,1.15rem);line-height:1.1;letter-spacing:.05em;text-transform:uppercase;color:var(--paper)}
+.feed-tag b{font-weight:400;color:var(--tape)}
+.feed-hint{display:block;color:var(--tape)}
+.tap-hint{display:none;margin-top:10px;font-family:var(--f-cctv);font-size:1.12rem;line-height:1.2;color:var(--phosphor)}
+@media (max-width:600px){.feed-hint{display:none}.tap-hint{display:block}}
+.anomaly{display:flex;gap:.5em;margin-top:12px;font-family:var(--f-cctv);font-size:1.12rem;line-height:1.2;color:var(--tape)}
+.anomaly span:first-child{flex:none}
+
+/* police tape */
+.tape{position:absolute;left:-12%;right:-12%;z-index:4;display:flex;overflow:hidden;white-space:nowrap;pointer-events:none;
+  background-color:var(--tape);background-image:linear-gradient(var(--tape-ink),var(--tape-ink)),linear-gradient(var(--tape-ink),var(--tape-ink));background-size:100% 3px;background-repeat:no-repeat;background-position:0 5px,0 calc(100% - 5px);
+  padding-block:.55em;color:var(--tape-ink);font-family:var(--f-display);font-weight:900;font-size:clamp(1rem,2.8vw,1.4rem);letter-spacing:.14em;text-transform:uppercase;box-shadow:0 10px 24px -6px var(--shade)}
+.tape span{padding-right:1.1em}
+.tape-top{top:16px;transform:rotate(-1.8deg)}
+.tape-bottom{bottom:36px;transform:rotate(2.2deg)}
+
+/* ---------- lab : analyse d'image ---------- */
+.lab{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:var(--scrim);padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px))}
+.lab-inner{width:min(100%,980px);display:grid;gap:10px;padding:10px;background:var(--console);border:1px solid var(--line);border-radius:8px}
+.lab-head{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--f-cctv);font-size:1.25rem;line-height:1.1;color:var(--tape);text-transform:uppercase;letter-spacing:.06em}
+.lab-screen{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden;background:var(--tape-ink);border-radius:3px}
+.lab-screen canvas{display:block;width:100%;height:100%}
+.lab-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.lab-log{flex:1 1 260px;min-width:0;min-height:2.6em;font-family:var(--f-cctv);font-size:1.3rem;line-height:1.25;color:var(--phosphor)}
+.ctl{min-height:40px;padding:.2rem .85rem;border:1px solid var(--line);border-radius:3px;background:var(--console-2);color:var(--phosphor);font-family:var(--f-cctv);font-size:1.25rem;line-height:1;letter-spacing:.04em;text-transform:uppercase}
+.ctl:hover{border-color:var(--tape);color:var(--tape)}
+.btn-tape{min-height:46px;padding:.55em 1.1em;border:2px solid var(--tape-ink);border-radius:2px;background:var(--tape);color:var(--tape-ink);font-family:var(--f-display);font-weight:900;font-size:1.15rem;letter-spacing:.1em;text-transform:uppercase;box-shadow:4px 4px 0 var(--stamp)}
+.btn-tape:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--stamp)}
+.btn-tape:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--stamp)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- PV ---------- */
+.folder{position:relative;max-width:1000px;margin-inline:auto;padding-top:36px}
+.folder-tab{position:absolute;top:0;left:18px;padding:.55rem 1rem 1rem;border-radius:8px 8px 0 0;background:var(--manila);color:var(--ink);font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
+.folder-body{padding:12px;background:var(--manila);border-radius:4px 10px 10px 10px;box-shadow:0 34px 60px -26px var(--shade)}
+.sheet{position:relative;display:grid;gap:30px;padding:clamp(22px,4.5vw,46px);background:var(--paper);color:var(--ink);border-radius:2px}
+@media (min-width:840px){.sheet{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:44px}}
+.sheet-title{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(2.1rem,7vw,3.3rem);line-height:.9;color:var(--ink)}
+.fields{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:.5rem 1rem;margin:1.4rem 0 1.5rem;font-size:.95rem}
+.fields dt{padding-top:.2em;font-weight:700;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.fields dd{margin:0;padding-bottom:.4rem;border-bottom:1px dotted var(--ink-soft)}
+@media (max-width:520px){.fields{grid-template-columns:minmax(0,1fr);gap:.15rem}.fields dt{padding-top:.55rem}}
+.story{display:grid;gap:.9rem;max-width:60ch}
+.stamp{position:absolute;z-index:2;display:inline-block;padding:.08em .4em;border:4px solid currentColor;border-radius:3px;font-family:var(--f-display);font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--stamp);opacity:.88;mix-blend-mode:multiply;pointer-events:none}
+.stamp-conf{top:-16px;right:12px;font-size:clamp(1rem,3vw,1.5rem);transform:rotate(7deg);background:var(--paper)}
+.plan{position:relative;margin:0;padding:8px 8px 12px;background:var(--plastic);box-shadow:0 12px 26px -12px var(--shade);transform:rotate(1.4deg)}
+.plan::before{content:"";position:absolute;top:-13px;left:38%;width:96px;height:26px;background:var(--postit);opacity:.75;transform:rotate(-5deg)}
+.plan-img{position:relative}
+.ring{position:absolute;left:49%;top:37%;width:36%;aspect-ratio:1.45;transform:translate(-50%,-50%) rotate(-9deg);border:3px solid var(--stamp);border-radius:52% 46% 55% 44%/50% 58% 42% 50%}
+.plan figcaption{margin-top:.6rem;font-family:var(--f-hand);font-size:1rem;line-height:1.25;color:var(--biro)}
+.consignes{margin-top:26px;padding-top:18px;border-top:2px dashed var(--ink-soft)}
+.consignes h3{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stamp)}
+.consignes ul{list-style:none;margin:.7rem 0 0;padding:0;display:grid;gap:.35rem}
+.consignes li{display:grid;grid-template-columns:1.2em minmax(0,1fr);gap:.4em}
+.consignes li::before{content:"—"}
+.signature{margin-top:1.6rem;font-family:var(--f-hand);font-size:1.15rem;line-height:1.3;color:var(--biro);transform:rotate(-1.5deg)}
+
+/* ---------- cork : avis de recherche ---------- */
+.cork{color:var(--ink);background-color:var(--cork);
+  background-image:radial-gradient(circle at 20% 30%,rgba(0,0,0,.2) 0 1.2px,transparent 1.7px),radial-gradient(circle at 70% 60%,rgba(255,255,255,.14) 0 1px,transparent 1.5px),radial-gradient(circle at 40% 80%,rgba(0,0,0,.14) 0 1.6px,transparent 2.1px);
+  background-size:9px 11px,13px 7px,17px 15px;box-shadow:inset 0 0 0 10px var(--cork-dark),inset 0 0 90px rgba(0,0,0,.4)}
+.label-card{display:inline-block;max-width:100%;padding:16px 20px 18px;background:var(--paper);box-shadow:0 14px 26px -14px var(--shade);transform:rotate(-1.2deg)}
+.label-card .kicker{color:var(--stamp)}
+.label-card .h-section{color:var(--ink)}
+.wanted{display:grid;gap:44px;margin-top:44px;align-items:start}
+@media (min-width:900px){.wanted{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:30px}}
+.wanted-item{display:grid;gap:22px;justify-items:center}
+.poster{position:relative;width:100%;max-width:380px;margin:0;padding:6px;background:var(--paper);box-shadow:0 22px 32px -14px var(--shade)}
+.poster.tl{transform:rotate(-2.4deg)}
+.poster.tr{transform:rotate(2deg)}
+.pin{position:absolute;top:-9px;left:50%;z-index:2;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--pin-hi),var(--stamp) 55%,var(--stamp-dark));box-shadow:0 5px 6px var(--shade)}
+.index-card{width:100%;max-width:380px;padding:0 16px 14px;line-height:1.6rem;font-size:.92rem;color:var(--ink);box-shadow:0 14px 24px -14px var(--shade);
+  background-color:var(--paper);background-image:linear-gradient(var(--stamp),var(--stamp)),repeating-linear-gradient(to bottom,transparent 0 calc(1.6rem - 1px),var(--rule-blue) calc(1.6rem - 1px) 1.6rem);
+  background-size:100% 1px,100% 100%;background-repeat:no-repeat,no-repeat;background-position:0 2.4rem,0 2.4rem}
+.index-card.tl{transform:rotate(1deg)} .index-card.tr{transform:rotate(-1deg)}
+.ic-head{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;height:2.4rem;line-height:2.4rem}
+.ic-head b{font-family:var(--f-display);font-weight:900;font-size:1.45rem;letter-spacing:.06em;text-transform:uppercase}
+.ic-head span{font-size:.78rem;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.index-card dl{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:0 .8rem;margin:0}
+.index-card dt{font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.index-card dd{margin:0}
+.postit{position:relative;align-self:center;justify-self:center;max-width:230px;padding:1.1rem 1.3rem;background:var(--postit);color:var(--ink);font-family:var(--f-hand);font-size:1.4rem;line-height:1.2;text-align:center;box-shadow:0 14px 22px -12px var(--shade);transform:rotate(-3deg)}
+.postit::before,.postit::after{content:"";position:absolute;background:var(--stamp);box-shadow:0 2px 3px var(--shade)}
+.postit::before{left:50%;top:-44px;width:2px;height:44px}
+.postit::after{left:50%;bottom:-44px;width:2px;height:44px}
+@media (min-width:900px){
+  .postit::before{left:auto;right:100%;top:46%;width:46px;height:2px;transform:rotate(-8deg)}
+  .postit::after{left:100%;bottom:auto;top:58%;width:46px;height:2px;transform:rotate(10deg)}
+}
+.reward{margin:52px auto 0;max-width:640px;padding:14px 18px;text-align:center;background:var(--tape-ink);color:var(--tape);font-family:var(--f-display);font-weight:700;font-size:clamp(1.15rem,3.6vw,1.5rem);line-height:1.15;letter-spacing:.06em;text-transform:uppercase;transform:rotate(-.8deg)}
+
+/* ---------- NVR : relecture ---------- */
+.replay{background:var(--console);border-block:1px solid var(--line)}
+.nvr{display:grid;gap:14px;margin-top:34px;padding:10px;background:var(--night);border:1px solid var(--line);border-radius:8px}
+@media (min-width:980px){.nvr{grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);align-items:start}}
+.nvr-main{display:grid;gap:10px;min-width:0}
+.nvr-screen{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden;background:var(--tape-ink);border-radius:3px}
+.nvr-screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.nvr-screen .grain{opacity:0;transition:opacity .08s}
+.nvr-screen.switching .grain{opacity:.85}
+.nvr-ts{position:absolute;left:10px;bottom:8px;z-index:3;padding:0 .4em;background:var(--shade);font-family:var(--f-cctv);font-size:clamp(1.05rem,3.6vw,1.7rem);line-height:1.2;color:var(--paper);font-variant-numeric:tabular-nums}
+.nvr-chan{position:absolute;right:10px;top:8px;z-index:3;padding:0 .4em;background:var(--shade);font-family:var(--f-cctv);font-size:clamp(1rem,3vw,1.35rem);line-height:1.2;color:var(--tape)}
+.nvr-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ctl.play[aria-pressed="true"]{background:var(--tape);border-color:var(--tape);color:var(--tape-ink)}
+.nvr-state{margin-left:auto;font-family:var(--f-cctv);font-size:1.15rem;color:var(--muted);letter-spacing:.06em}
+.scrub{position:relative;padding-bottom:22px}
+.scrub-track{position:relative;height:38px;border:1px solid var(--line);border-radius:3px;background-color:var(--console);background-image:repeating-linear-gradient(to right,var(--line) 0 1px,transparent 1px 12.5%);cursor:pointer}
+.scrub-fill{position:absolute;left:0;top:0;bottom:0;background:var(--tape);opacity:.1}
+.scrub-mark{position:absolute;top:7px;bottom:7px;width:3px;margin-left:-1px;background:var(--stamp)}
+.scrub-head{position:absolute;top:-4px;bottom:-4px;width:2px;margin-left:-1px;background:var(--tape);transition:left .35s ease}
+.scrub-head::before{content:"";position:absolute;top:-2px;left:-5px;border:6px solid transparent;border-top-color:var(--tape)}
+.scrub-axis span{position:absolute;bottom:0;font-family:var(--f-cctv);font-size:1rem;line-height:1;color:var(--muted);transform:translateX(-50%)}
+.scrub-axis span:first-child{transform:none}
+.scrub-axis span:last-child{transform:translateX(-100%)}
+.scrub-note{font-family:var(--f-cctv);font-size:1.12rem;line-height:1.2;color:var(--tape)}
+.nvr-side{display:grid;gap:12px;min-width:0}
+.case-note{position:relative;padding:16px 18px 18px;background:var(--paper);color:var(--ink);border-radius:2px}
+.case-note .kicker{color:var(--stamp);font-size:1.05rem}
+.case-note h3{font-family:var(--f-display);font-weight:900;font-size:1.9rem;line-height:.95;text-transform:uppercase}
+.case-note p{margin-top:.6rem;font-size:.95rem}
+.events{display:grid;gap:3px;margin:0;padding:0;list-style:none}
+.events button{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:.75rem;width:100%;padding:.45rem .6rem;border:1px solid transparent;border-radius:3px;background:transparent;text-align:left;font-family:var(--f-cctv);font-size:1.15rem;line-height:1.15;color:var(--muted)}
+.events button:hover{color:var(--phosphor);border-color:var(--line)}
+.events button[aria-current="true"]{color:var(--tape);border-color:var(--tape)}
+.events .ev-t{font-variant-numeric:tabular-nums}
+
+/* ---------- QG ---------- */
+.qg{position:relative;background:var(--night)}
+.qg figure{position:relative;margin:0}
+.qg img{width:100%;max-height:80vh;object-fit:cover}
+.qg-cap{margin:-34px 16px 0;position:relative;padding:16px 18px;background:var(--paper);color:var(--ink);box-shadow:0 18px 30px -14px var(--shade);transform:rotate(-1deg)}
+.qg-cap .kicker{color:var(--stamp)}
+.qg-cap h2{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(1.9rem,6vw,2.8rem);line-height:.9}
+.qg-cap p{margin-top:.5rem;font-size:.95rem}
+@media (min-width:820px){.qg-cap{position:absolute;margin:0;left:40px;bottom:40px;max-width:430px}}
+
+/* ---------- scellés ---------- */
+.evidence{background:linear-gradient(var(--night),var(--console-2))}
+.bags{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px;margin-top:36px}
+@media (min-width:920px){.bags{grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 22px}}
+.bag{display:flex;flex-direction:column;min-width:0;padding-bottom:12px;color:var(--ink);background:linear-gradient(155deg,var(--paper),var(--plastic) 45%,var(--plastic-edge));border-radius:4px 4px 9px 9px;box-shadow:0 18px 28px -16px var(--tape-ink)}
+.bag:nth-child(odd){transform:rotate(-1deg)}
+.bag:nth-child(even){transform:rotate(1.1deg)}
+.bag-zip{height:11px;border-radius:4px 4px 0 0;background:repeating-linear-gradient(90deg,var(--plastic-edge) 0 3px,var(--plastic) 3px 6px)}
+.bag-head{display:flex;justify-content:space-between;gap:.4rem;padding:.3rem .6rem;background:var(--stamp);color:var(--paper);font-family:var(--f-display);font-weight:900;font-size:clamp(.72rem,2.4vw,.9rem);letter-spacing:.08em;text-transform:uppercase}
+.bag-photo{margin:10px 10px 0;aspect-ratio:1;max-width:100%;overflow:hidden;background:var(--tape-ink)}
+.bag-photo img{width:100%;height:100%;object-fit:cover;filter:contrast(1.06) saturate(.85)}
+.bag h3{margin:12px 11px 4px;font-family:var(--f-display);font-weight:900;font-size:clamp(1.15rem,3.8vw,1.55rem);line-height:.95;text-transform:uppercase}
+.bag p{margin:0 11px 10px;font-size:clamp(.8rem,2.4vw,.88rem);line-height:1.45}
+.bag-meta{display:grid;gap:1px;margin:auto 11px 0;padding-top:9px;border-top:1px dashed var(--ink-soft);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ---------- tapissage ---------- */
+.lineup{background:var(--wall);color:var(--ink)}
+.lineup .kicker{color:var(--stamp)}
+.lineup .h-section{color:var(--ink)}
+.lineup .intro{color:var(--ink-soft)}
+.ar-title{text-align:left;margin-top:.4rem;font-size:clamp(1.7rem,6.5vw,2.7rem);line-height:1.2;color:var(--ink-soft)}
+.suspects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px;padding:14px;border-radius:4px;background-color:var(--wall);background-image:repeating-linear-gradient(to bottom,var(--wall-line) 0 1px,transparent 1px 22px);box-shadow:inset 0 0 0 2px var(--wall-line)}
+@media (min-width:760px){.suspects{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;padding:18px}}
+.suspect{position:relative;display:flex;flex-direction:column;min-width:0;padding:0;border:0;border-radius:3px;background:var(--ink);color:var(--paper);text-align:left;box-shadow:0 14px 24px -14px var(--shade);transition:transform .2s ease}
+.suspect:hover{transform:translateY(-2px)}
+.suspects.has-pick .suspect:not([aria-checked="true"]) .mug img{filter:grayscale(1) brightness(.5)}
+.suspects.has-pick .suspect:not([aria-checked="true"]) .placard{color:var(--muted)}
+.suspect[aria-checked="true"]{outline:4px solid var(--tape);outline-offset:3px}
+.mug{position:relative;display:block;aspect-ratio:3/4;max-width:100%;overflow:hidden;border-radius:3px 3px 0 0;background:var(--tape-ink)}
+.mug img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.55) contrast(1.08);transition:filter .3s ease,opacity .7s ease}
+.mug img.alt{opacity:0}
+.mug img.alt.on{opacity:1}
+.suspect[aria-checked="true"] .mug img{filter:none}
+.mug-n{position:absolute;top:0;left:0;z-index:2;padding:.12em .5em;background:var(--tape);color:var(--tape-ink);font-family:var(--f-display);font-weight:900;font-size:1.15rem;letter-spacing:.06em}
+.mug-count{position:absolute;right:6px;bottom:6px;z-index:2;padding:0 .4em;background:var(--shade);color:var(--paper);font-family:var(--f-cctv);font-size:1.05rem;line-height:1.2}
+.placard{display:block;padding:.5rem .6rem .65rem;font-family:var(--f-cctv);font-size:clamp(1.05rem,3.3vw,1.25rem);line-height:1.05;letter-spacing:.04em;text-transform:uppercase;color:var(--paper);overflow-wrap:anywhere}
+.placard small{display:block;margin-top:.2rem;font-family:var(--f-type);font-size:.74rem;line-height:1.3;letter-spacing:0;text-transform:none;color:var(--muted)}
+.guilty{position:absolute;top:38%;left:50%;z-index:3;padding:.05em .35em;border:3px solid currentColor;border-radius:2px;background:var(--paper);color:var(--stamp);font-family:var(--f-display);font-weight:900;font-size:clamp(1.05rem,3.6vw,1.45rem);letter-spacing:.08em;text-transform:uppercase;transform:translate(-50%,-50%) rotate(-14deg);opacity:.95;pointer-events:none}
+.vote-panel{display:grid;gap:16px;max-width:760px;margin-top:26px}
+.casier{min-height:5.4em;padding:14px 16px;background:var(--paper);color:var(--ink);border-left:6px solid var(--ink);box-shadow:0 12px 22px -14px var(--shade)}
+.casier .kicker{color:var(--stamp);font-size:1.05rem}
+.casier p{font-size:.98rem}
+.btn-accuse{justify-self:start;min-height:52px;padding:.55em 1.3em;border:3px solid var(--stamp);border-radius:2px;background:var(--stamp);color:var(--paper);font-family:var(--f-display);font-weight:900;font-size:1.3rem;letter-spacing:.1em;text-transform:uppercase;box-shadow:5px 5px 0 var(--ink)}
+.btn-accuse:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:6px 6px 0 var(--ink)}
+.btn-accuse:disabled{background:transparent;color:var(--ink-soft);border-color:var(--ink-soft);box-shadow:none}
+.pseudo-field{display:grid;gap:6px;max-width:420px}
+.pseudo-field label{font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.pseudo-field label span{font-weight:400;letter-spacing:0;text-transform:none;color:var(--ink-soft)}
+.pseudo-field input{min-height:46px;padding:.5rem .75rem;border:2px solid var(--ink);border-radius:2px;background:var(--paper);color:var(--ink);font:inherit;font-size:1rem}
+.pseudo-field input::placeholder{color:var(--ink-soft);opacity:.7}
+.vote-panel:has(#verdict:not([hidden])) .pseudo-field{display:none}
+.vote-error{padding:10px 12px;background:var(--stamp);color:var(--paper);font-size:.92rem}
+.verdict{position:relative;padding:20px 18px 18px;background:var(--paper);color:var(--ink);box-shadow:0 16px 26px -14px var(--shade)}
+.verdict .stamp{position:static;display:inline-block;margin-bottom:12px;font-size:1.1rem;transform:rotate(-3deg)}
+.verdict h3{font-family:var(--f-display);font-weight:900;font-size:clamp(1.7rem,6vw,2.4rem);line-height:.95;text-transform:uppercase}
+.verdict p{margin-top:.6rem}
+.verdict .fine{font-size:.82rem;color:var(--ink-soft)}
+.link-btn{margin-top:12px;padding:0;border:0;background:none;color:var(--biro);text-decoration:underline;text-underline-offset:3px;font-size:.92rem}
+.results{padding:16px 18px 18px;background:var(--ink);color:var(--paper);border-radius:2px}
+.results-head{display:flex;justify-content:space-between;gap:12px;font-family:var(--f-cctv);font-size:1.2rem;line-height:1.1;letter-spacing:.06em;text-transform:uppercase;color:var(--tape)}
+.res-rows{display:grid;gap:12px;margin-top:14px}
+.res-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:baseline}
+.res-name{font-weight:700;font-size:.92rem}
+.res-num{font-family:var(--f-cctv);font-size:1.2rem;font-variant-numeric:tabular-nums;color:var(--phosphor)}
+.res-bar{grid-column:1 / -1;height:14px;background:var(--console-2);border-radius:2px;overflow:hidden}
+.res-bar i{display:block;height:100%;width:0;background:repeating-linear-gradient(-45deg,var(--tape) 0 9px,var(--tape-ink) 9px 18px);transition:width .6s ease}
+.res-row.mine .res-name::after{content:" · ton choix";font-weight:400;color:var(--tape)}
+
+/* ---------- agentes ---------- */
+.agents{overflow:hidden;padding-bottom:150px;background:radial-gradient(90% 70% at 20% 40%,var(--console-2),var(--night) 70%)}
+.agents-grid{display:grid;gap:40px;align-items:center}
+@media (min-width:880px){.agents-grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:60px}}
+.agents-poster{justify-self:center;width:100%;max-width:420px;margin:0;border:8px solid var(--paper);box-shadow:0 34px 60px -24px var(--tape-ink);transform:rotate(-2deg)}
+.agents-copy .h-section{font-size:clamp(2.8rem,11vw,5.4rem)}
+.agents-copy .lede{max-width:40ch}
+.equip{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:.45rem 1rem;margin:1.6rem 0 0;padding:14px 16px;border:1px solid var(--line);border-radius:4px;background:var(--console);font-size:.95rem}
+.equip dt{font-family:var(--f-cctv);font-size:1.1rem;line-height:1.3;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.equip dd{margin:0;color:var(--paper)}
+.votez{width:min(100%,520px);margin-top:28px}
+.disclaimer{margin-top:52px;text-align:center;font-size:.82rem;color:var(--muted)}
+.tape-foot{bottom:42px;transform:rotate(-2deg)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="ticker" role="marquee" aria-label="Alerte radio">
+  <span class="ticker-label"><span aria-hidden="true">●</span>CANAL 7</span>
+  <div class="ticker-view">
+    <div class="ticker-track">
+      <span>Alerte générale · deux élèves portés disparus devant PMF · Sneaky : lunettes, tenue « bagla leha » · Mergueza : dernière tenue connue « robe rouge » · ne pas s’approcher du Fiorino blanc · toute information → Zeineb &amp; Lemis · <span class="ar">حالة عادية</span> ·</span>
+      <span aria-hidden="true">Alerte générale · deux élèves portés disparus devant PMF · Sneaky : lunettes, tenue « bagla leha » · Mergueza : dernière tenue connue « robe rouge » · ne pas s’approcher du Fiorino blanc · toute information → Zeineb &amp; Lemis · <span class="ar">حالة عادية</span> ·</span>
+    </div>
+  </div>
+</div>
+
+<main>
+<!-- ===================== SALLE DE SURVEILLANCE ===================== -->
+<header class="hero">
+  <div class="tape tape-top" aria-hidden="true">
+    <span>Scène de crime · ne pas franchir · <bdi class="ar">حالة عادية</bdi> ·</span><span>Scène de crime · ne pas franchir · <bdi class="ar">حالة عادية</bdi> ·</span><span>Scène de crime · ne pas franchir · <bdi class="ar">حالة عادية</bdi> ·</span><span>Scène de crime · ne pas franchir · <bdi class="ar">حالة عادية</bdi> ·</span><span>Scène de crime · ne pas franchir · <bdi class="ar">حالة عادية</bdi> ·</span>
+  </div>
+  <div class="wrap">
+    <div class="nvr-bar">
+      <span class="rec"><i></i>REC</span>
+      <span>NVR-PMF · 4 canaux</span>
+      <span class="clock" id="clock">06/10/2026 --:--:--</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <img class="badge-cvl" src="img/logo-cvl.png" width="900" height="563" alt="CVL حالة عادية">
+        <p class="dossier">Dossier n° CVL/26/0926 · Brigade CVL</p>
+        <h1 class="title">Sneaky <span class="amp">&amp;</span><br>Mergueza</h1>
+        <p class="lede">Deux élèves ont disparu devant le lycée Pierre Mendès France. Quatre caméras ont tout filmé. Personne n’a rien compris. <strong>Les agentes Zeineb et Lemis reprennent l’enquête.</strong></p>
+      </div>
+      <div>
+        <div class="monitors" id="monitors">
+          <button class="feed" type="button" data-feed="entree" aria-label="Analyser la caméra 01, entrée lycéens">
+            <img src="img/cam-entree.jpg" width="1280" height="720" alt="">
+            <span class="grain"></span>
+            <span class="feed-rec rec"><i></i>REC</span>
+            <span class="feed-tag"><b>01</b> Entrée lycéens<span class="feed-hint">▸ analyser</span></span>
+          </button>
+          <button class="feed" type="button" data-feed="portail" aria-label="Analyser la caméra 02, portail">
+            <img src="img/cam-portail.jpg" width="1280" height="720" alt="">
+            <span class="grain"></span>
+            <span class="feed-rec rec"><i></i>REC</span>
+            <span class="feed-tag"><b>02</b> Portail<span class="feed-hint">▸ analyser</span></span>
+          </button>
+          <button class="feed" type="button" data-feed="fiorino" aria-label="Analyser la caméra 03, parking">
+            <img src="img/cam-fiorino.jpg" width="1280" height="720" alt="">
+            <span class="grain"></span>
+            <span class="feed-rec rec"><i></i>REC</span>
+            <span class="feed-tag"><b>03</b> Parking<span class="feed-hint">▸ analyser</span></span>
+          </button>
+          <button class="feed" type="button" data-feed="rue" aria-label="Analyser la caméra 04, rue">
+            <img src="img/cam-rue.jpg" width="1280" height="720" alt="">
+            <span class="grain"></span>
+            <span class="feed-rec rec"><i></i>REC</span>
+            <span class="feed-tag"><b>04</b> Rue<span class="feed-hint">▸ analyser</span></span>
+          </button>
+        </div>
+        <p class="tap-hint">▸ Touche un écran pour l’analyser.</p>
+        <p class="anomaly"><span aria-hidden="true">▲</span><span>Anomalie : les caméras 01 à 04 se croient en 2024, et la 01 écrit la date à l’américaine. Elles ont été placées en garde à vue.</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="tape tape-bottom" aria-hidden="true">
+    <span>Brigade CVL · enquête en cours · ne pas franchir ·</span><span>Brigade CVL · enquête en cours · ne pas franchir ·</span><span>Brigade CVL · enquête en cours · ne pas franchir ·</span><span>Brigade CVL · enquête en cours · ne pas franchir ·</span><span>Brigade CVL · enquête en cours · ne pas franchir ·</span>
+  </div>
+</header>
+
+<!-- ===================== PROCÈS-VERBAL ===================== -->
+<section class="sec pv" id="pv" aria-labelledby="pv-title">
+  <div class="wrap">
+    <div class="folder">
+      <div class="folder-tab">PV n° 0926 · Ouverture d’enquête</div>
+      <div class="folder-body">
+        <article class="sheet">
+          <span class="stamp stamp-conf">Confidentiel</span>
+          <div>
+            <p class="kicker" style="color:var(--stamp)">Procès-verbal</p>
+            <h2 class="sheet-title" id="pv-title">Ouverture d’enquête</h2>
+            <dl class="fields">
+              <dt>Faits</dt><dd>Double disparition</dd>
+              <dt>Lieu</dt><dd>Devant PMF, Mutuelleville, Tunis</dd>
+              <dt>Date</dt><dd>Samedi 26/09 selon les affiches. Vendredi 02/10 selon les caméras. 2024 selon la CAM 04.</dd>
+              <dt>Disparus</dt><dd>Skandi Kallel « Sneaky », Guermazi « Mergueza »</dd>
+              <dt>Témoins fiables</dt><dd>0</dd>
+              <dt>Enquêtrices</dt><dd>Agente Zeineb, Agente Lemis</dd>
+              <dt>Qualification</dt><dd><span class="ar">حالة عادية</span>, situation tout à fait normale</dd>
+            </dl>
+            <div class="story">
+              <p>Samedi 26 septembre, devant le lycée Pierre Mendès France, deux élèves se sont volatilisés. Sneaky portait une tenue « bagla leha ». Mergueza a été vu pour la dernière fois en robe rouge. Depuis : pas un message, pas une story, pas un vu.</p>
+              <p>La brigade CVL a saisi les enregistrements de toutes les caméras du quartier. Il y en avait beaucoup. Elles ne sont pas d’accord entre elles.</p>
+            </div>
+          </div>
+          <div>
+            <figure class="plan">
+              <div class="plan-img">
+                <img loading="lazy" decoding="async" src="img/plan.jpg" width="900" height="589" alt="Plan du quartier de Mutuelleville avec le lycée Pierre Mendès France entouré">
+                <span class="ring" aria-hidden="true"></span>
+              </div>
+              <figcaption>Lieu des faits. Cercle tracé à la main, très sérieusement.</figcaption>
+            </figure>
+            <div class="consignes">
+              <h3>Consignes à la population</h3>
+              <ul>
+                <li>Si vous croisez une robe rouge, restez calme.</li>
+                <li>Ne touchez pas au tuyau du Fiorino.</li>
+                <li>Méfiez-vous des bonnets de bain.</li>
+                <li>Signalez toute enceinte Bluetooth au volume suspect.</li>
+                <li>Toute information : Zeineb &amp; Lemis.</li>
+              </ul>
+            </div>
+            <p class="signature">Fait à Tunis, le 06/10/2026.<br>Les agentes Z. &amp; L.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AVIS DE RECHERCHE ===================== -->
+<section class="sec cork" id="recherche" aria-labelledby="wanted-title">
+  <div class="wrap">
+    <div class="label-card">
+      <p class="kicker">Avis de recherche</p>
+      <h2 class="h-section" id="wanted-title">Disparus depuis le 26/09</h2>
+    </div>
+    <div class="wanted">
+      <article class="wanted-item">
+        <figure class="poster tl"><span class="pin"></span><img loading="lazy" decoding="async" src="img/poster-sneaky.jpg" width="720" height="1080" alt="Avis de recherche : Skandi Kallel, dit Sneaky. Cheveux bruns, lunettes, tenue bagla leha. Vu devant PMF samedi 26/09."></figure>
+        <div class="index-card tl">
+          <div class="ic-head"><b>Sneaky</b><span>Skandi Kallel</span></div>
+          <dl>
+            <dt>Signes</dt><dd>Lunettes, cheveux bruns</dd>
+            <dt>Tenue</dt><dd>« bagla leha »</dd>
+            <dt>Discrétion</dt><dd>9/10, d’où le surnom</dd>
+            <dt>Vu</dt><dd>Devant PMF, sam. 26/09</dd>
+          </dl>
+        </div>
+      </article>
+      <p class="postit">Même lieu.<br>Même jour.<br>Coïncidence ???</p>
+      <article class="wanted-item">
+        <figure class="poster tr"><span class="pin"></span><img loading="lazy" decoding="async" src="img/poster-mergueza.jpg" width="760" height="843" alt="Avis de recherche : Guermazi, dit Mergueza. Mcha3chet, tenue robe rouge. Vu devant PMF samedi 26/09."></figure>
+        <div class="index-card tr">
+          <div class="ic-head"><b>Mergueza</b><span>Guermazi</span></div>
+          <dl>
+            <dt>Signes</dt><dd>Mcha3chet</dd>
+            <dt>Tenue</dt><dd>« robe rouge »</dd>
+            <dt>Discrétion</dt><dd>0/10, robe rouge</dd>
+            <dt>Vu</dt><dd>Devant PMF, sam. 26/09</dd>
+          </dl>
+        </div>
+      </article>
+    </div>
+    <p class="reward">Récompense : la reconnaissance éternelle des agentes. Négociable.</p>
+  </div>
+</section>
+
+<!-- ===================== RELECTURE NVR ===================== -->
+<section class="sec replay" id="relecture" aria-labelledby="replay-title">
+  <div class="wrap">
+    <p class="kicker">Relecture vidéo</p>
+    <h2 class="h-section" id="replay-title">La nuit du 02/10</h2>
+    <p class="intro">Sept extraits, deux heures d’enregistrement, des caméras qui changent de numéro. Lance la lecture et surveille le t-shirt bleu.</p>
+
+    <div class="nvr">
+      <div class="nvr-main">
+        <div class="nvr-screen" id="nvr-screen">
+          <img loading="lazy" decoding="async" id="nvr-img" src="img/tl-2113.jpg" alt="Caméra 02, 21:13:27 : deux agentes collent une affiche CVL à l’entrée">
+          <span class="grain"></span>
+          <span class="nvr-chan" id="nvr-chan">CAM 02 · 1/7</span>
+          <span class="nvr-ts" id="nvr-ts">02-10-2026 21:13:27</span>
+        </div>
+        <div class="nvr-controls">
+          <button class="ctl" type="button" id="nvr-prev" aria-label="Extrait précédent">◀◀</button>
+          <button class="ctl play" type="button" id="nvr-play" aria-pressed="false">▶ Lecture</button>
+          <button class="ctl" type="button" id="nvr-next" aria-label="Extrait suivant">▶▶</button>
+          <span class="nvr-state" id="nvr-state">Vitesse ×1 · pause</span>
+        </div>
+        <div class="scrub">
+          <div class="scrub-track" id="scrub-track" role="group" aria-label="Frise de 21:00 à 23:00">
+            <div class="scrub-fill" id="scrub-fill"></div>
+            <div class="scrub-head" id="scrub-head"></div>
+          </div>
+          <div class="scrub-axis" aria-hidden="true"><span style="left:0%">21:00</span><span style="left:25%">21:30</span><span style="left:50%">22:00</span><span style="left:75%">22:30</span><span style="left:100%">23:00</span></div>
+        </div>
+        <p class="scrub-note">▲ 22:46 → 22:48 : cinq événements en deux minutes. Il s’est passé quelque chose.</p>
+      </div>
+      <div class="nvr-side">
+        <div class="case-note" aria-live="polite">
+          <p class="kicker">Note de l’enquêtrice</p>
+          <h3 id="nvr-title">Collage d’affiches</h3>
+          <p id="nvr-text">Les agentes Zeineb et Lemis collent leurs affiches de campagne à l’entrée. Comportement exemplaire. Rien à signaler, sauf un talent certain pour le scotch.</p>
+        </div>
+        <ol class="events" id="events"></ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QG ===================== -->
+<section class="qg" aria-labelledby="qg-title">
+  <figure>
+    <img loading="lazy" decoding="async" src="img/qg.jpg" width="1600" height="1200" alt="Le tableau d’enquête en liège : avis de recherche, photos, fil rouge, enveloppe Mission n°1 et dossier CVL">
+    <figcaption class="qg-cap">
+      <p class="kicker">Salle des opérations</p>
+      <h2 id="qg-title">Le QG de la brigade</h2>
+      <p>Fil rouge utilisé : plusieurs mètres. Pistes ouvertes : toutes. Réponses obtenues : aucune. Moral des agentes : intact.</p>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- ===================== SCELLÉS ===================== -->
+<section class="sec evidence" id="pieces" aria-labelledby="ev-title">
+  <div class="wrap">
+    <p class="kicker">Scellés</p>
+    <h2 class="h-section" id="ev-title">Pièces à conviction</h2>
+    <p class="intro">Huit objets saisis. Aucun n’a parlé.</p>
+    <div class="bags">
+      <article class="bag"><div class="bag-zip"></div><div class="bag-head"><span>Pièce</span><span>P-01</span></div>
+        <div class="bag-photo"><img loading="lazy" decoding="async" src="img/p-fiorino.jpg" width="480" height="380" alt="Fiorino blanc avec un tuyau qui sort du réservoir"></div>
+        <h3>Le Fiorino</h3><p>Feux allumés, tuyau dans le réservoir. Toujours là à 22:47. Personne ne fait le plein à cette heure.</p>
+        <div class="bag-meta"><span>Saisi par : Agente Lemis</span><span>Source : CAM 03</span></div></article>
+      <article class="bag"><div class="bag-zip"></div><div class="bag-head"><span>Pièce</span><span>P-02</span></div>
+        <div class="bag-photo"><img loading="lazy" decoding="async" src="img/p-enceinte.jpg" width="300" height="300" alt="Garçon en t-shirt bleu tenant une enceinte Bluetooth dans la rue"></div>
+        <h3>L’enceinte</h3><p>Tenue par le t-shirt bleu, au milieu de la rue. Volume présumé : abusif.</p>
+        <div class="bag-meta"><span>Saisi par : Agente Zeineb</span><span>Source : CAM 04</span></div></article>
+      <article class="bag"><div class="bag-zip"></div><div class="bag-head"><span>Pièce</span><span>P-03</span></div>
+        <div class="bag-photo"><img loading="lazy" decoding="async" src="img/p-outil.jpg" width="330" height="330" alt="Outil en bois brandi contre le portail du lycée"></div>
+        <h3>L’outil en bois</h3><p>Marteau ou rouleau à pâtisserie ? Le labo ne s’est pas mis d’accord.</p>
+        <div class="bag-meta"><span>Saisi par : Agente Lemis</span><span>Source : CAM 02</span></div></article>
+      <article class="bag"><div class="bag-zip"></div><div class="bag-head"><span>Pièce</span><span>P-04</span></div>
+        <div class="bag-photo"><img loading="lazy" decoding="async" src="img/p-poupee.jpg" width="220" height="220" alt="Une poupée rose tenue devant le portail"></div>
+        <h3>La poupée rose</h3><p>Seule témoin présente au portail. Refuse de parler sans son avocat.</p>
+        <div class="bag-meta"><span>Saisi par : Agente Zeineb</span><span>Source : CAM 02</span></div></article>
+      <article class="bag"><div class="bag-zip"></div><div class="bag-head"><span>Pièce</span><span>P-05</span></div>
+        <div class="bag-photo"><img loading="lazy" decoding="async" src="img/p-bonnet.jpg" width="560" height="560" alt="Selfie d’un individu portant un bonnet de bain gris"></div>
+        <h3>Le selfie au bonnet</h3><p>Reçu à 12:59, expéditeur inconnu. Le bonnet n’a jamais été expliqué.</p>
+        <div class="bag-meta"><span>Saisi par : Agente Lemis</span><span>Source : téléphone</span></div></article>
+      <article class="bag"><div class="bag-zip"></div><div class="bag-head"><span>Pièce</span><span>P-06</span></div>
+        <div class="bag-photo"><img loading="lazy" decoding="async" src="img/p-enveloppe.jpg" width="420" height="380" alt="Enveloppe épinglée marquée Mission n°1"></div>
+        <h3>L’enveloppe</h3><p>Marquée « Mission n°1 ». Scellée. Contenu classé secret CVL.</p>
+        <div class="bag-meta"><span>Saisi par : Agente Zeineb</span><span>Source : QG</span></div></article>
+      <article class="bag"><div class="bag-zip"></div><div class="bag-head"><span>Pièce</span><span>P-07</span></div>
+        <div class="bag-photo"><img loading="lazy" decoding="async" src="img/p-arme.jpg" width="420" height="360" alt="Pistolet jouet à bout orange posé à côté d’un petit haut-parleur noir"></div>
+        <h3>L’arme de service</h3><p>Bout orange réglementaire. À côté, un palet noir qui écoute peut-être.</p>
+        <div class="bag-meta"><span>Saisi par : Agente Lemis</span><span>Source : QG</span></div></article>
+      <article class="bag"><div class="bag-zip"></div><div class="bag-head"><span>Pièce</span><span>P-08</span></div>
+        <div class="bag-photo"><img loading="lazy" decoding="async" src="img/p-lunettes.jpg" width="280" height="280" alt="Individu à lunettes regardant les affiches CVL"></div>
+        <h3>Les lunettes</h3><p>Repérées devant les affiches à 22:46. L’avis de recherche de Sneaky parle de lunettes. On dit ça, on dit rien.</p>
+        <div class="bag-meta"><span>Saisi par : Agente Zeineb</span><span>Source : CAM 01</span></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TAPISSAGE ===================== -->
+<section class="sec lineup" id="tapissage" aria-labelledby="lineup-title">
+  <div class="wrap">
+    <p class="kicker">Tapissage · séance d’identification</p>
+    <h2 class="h-section" id="lineup-title">Chkoun khtafhom ?</h2>
+    <p class="ar ar-title" dir="rtl" lang="ar">شكون خطفهم؟</p>
+    <p class="intro">Quatre suspects derrière la vitre. Touche celui que tu accuses, puis signe ta déposition.</p>
+
+    <div class="suspects" id="suspects" role="radiogroup" aria-label="Suspects"></div>
+
+    <div class="vote-panel">
+      <div class="casier" id="casier" aria-live="polite">
+        <p class="kicker">Casier judiciaire</p>
+        <p>Touche un suspect pour ouvrir son casier.</p>
+      </div>
+      <div class="pseudo-field">
+        <label for="pseudo">Signe ta déposition <span>(pseudo, optionnel · visible seulement par les agentes)</span></label>
+        <input id="pseudo" name="pseudo" type="text" maxlength="24" autocomplete="nickname" placeholder="Ex. : Inspecteur Brioche">
+      </div>
+      <button class="btn-accuse" type="button" id="accuse" disabled>Signer ma déposition</button>
+      <p class="vote-error" id="vote-error" role="alert" hidden></p>
+      <div class="verdict" id="verdict" hidden>
+        <span class="stamp">Déposition enregistrée</span>
+        <h3 id="verdict-title">Tu accuses : …</h3>
+        <p id="verdict-text"></p>
+        <p class="fine" id="verdict-note"></p>
+        <button class="link-btn" type="button" id="change-vote">Changer ma déposition</button>
+      </div>
+      <div class="results" id="results" hidden>
+        <div class="results-head"><span>Registre central</span><span id="res-total">0 déposition</span></div>
+        <div class="res-rows" id="res-rows"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AGENTES ===================== -->
+<section class="sec agents" id="agentes" aria-labelledby="agents-title">
+  <div class="wrap agents-grid">
+    <figure class="agents-poster"><img loading="lazy" decoding="async" src="img/campagne.jpg" width="900" height="1347" alt="Affiche de campagne : Zeineb et Lemis en agentes, badge CVL, matraque et pistolet à bout orange. Votez Zeineb et Lemis."></figure>
+    <div class="agents-copy">
+      <p class="kicker">Enquêtrices en charge</p>
+      <h2 class="h-section" id="agents-title">Deux agentes.<br>Une mission.</h2>
+      <p class="lede">Retrouver Sneaky et Mergueza. Et, tant qu’à faire, prendre le CVL.</p>
+      <dl class="equip">
+        <dt>Équipement</dt><dd>Badge CVL, matraque, pistolet à bout orange</dd>
+        <dt>Statut</dt><dd>En service</dd>
+        <dt>Méthode</dt><dd><span class="ar">حالة عادية</span></dd>
+      </dl>
+      <img loading="lazy" decoding="async" class="votez" src="img/logo-votez.png" width="900" height="450" alt="Votez Zeineb et Lemis">
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="disclaimer">Toute ressemblance avec des faits réels est purement électorale. Personne n’a été enlevé. Aucun Fiorino n’a été maltraité.</p>
+  </div>
+  <div class="tape tape-foot" aria-hidden="true">
+    <span>Affaire en cours · votez Zeineb &amp; Lemis · <bdi class="ar">حالة عادية</bdi> ·</span><span>Affaire en cours · votez Zeineb &amp; Lemis · <bdi class="ar">حالة عادية</bdi> ·</span><span>Affaire en cours · votez Zeineb &amp; Lemis · <bdi class="ar">حالة عادية</bdi> ·</span><span>Affaire en cours · votez Zeineb &amp; Lemis · <bdi class="ar">حالة عادية</bdi> ·</span>
+  </div>
+</section>
+</main>
+
+<!-- ===================== LABO D'ANALYSE ===================== -->
+<div class="lab" id="lab" hidden role="dialog" aria-modal="true" aria-labelledby="lab-title">
+  <div class="lab-inner">
+    <div class="lab-head"><span id="lab-title">Analyse · CAM 01</span><button class="ctl" type="button" id="lab-close">Fermer ✕</button></div>
+    <div class="lab-screen"><canvas id="lab-canvas" aria-label="Image de vidéosurveillance en cours d’analyse"></canvas></div>
+    <div class="lab-foot">
+      <p class="lab-log" id="lab-log" aria-hidden="true">Image chargée. Zone d’intérêt repérée.</p>
+      <p class="sr-only" id="lab-live" aria-live="polite"></p>
+      <button class="btn-tape" type="button" id="lab-enhance">Améliorer l’image</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- grain ---------- */
+  try {
+    const c = document.createElement("canvas"); c.width = c.height = 120;
+    const x = c.getContext("2d"); const d = x.createImageData(120, 120);
+    for (let i = 0; i < d.data.length; i += 4) { const v = (Math.random() * 255) | 0; d.data[i] = d.data[i+1] = d.data[i+2] = v; d.data[i+3] = 255; }
+    x.putImageData(d, 0, 0);
+    document.documentElement.style.setProperty("--noise", "url(" + c.toDataURL() + ")");
+  } catch (e) {}
+
+  /* ---------- horloge NVR ---------- */
+  const clock = $("clock");
+  let fmt = null;
+  try { fmt = new Intl.DateTimeFormat("fr-FR", { timeZone: "Africa/Tunis", day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }); } catch (e) {}
+  function tickClock(){ if (fmt) clock.textContent = fmt.format(new Date()).replace(",", ""); }
+  tickClock(); setInterval(tickClock, 1000);
+
+  /* ---------- labo : améliorer l'image ---------- */
+  const FEEDS = {
+    entree:  { src: "img/cam-entree.jpg",  cam: "CAM 01", place: "Entrée lycéens", fx: .505, fy: .47,
+      steps: ["Résultat : une paire de lunettes. L’avis de recherche de Sneaky mentionne des lunettes. On note.",
+              "Résultat : un pixel. Il porte peut-être des lunettes, lui aussi."] },
+    portail: { src: "img/cam-portail.jpg", cam: "CAM 02", place: "Portail", fx: .72, fy: .27,
+      steps: ["Résultat : un outil en bois. Marteau ou rouleau à pâtisserie ? Le labo est divisé.",
+              "Résultat : du bois. Beaucoup de bois. Le labo demande une pause."] },
+    fiorino: { src: "img/cam-fiorino.jpg", cam: "CAM 03", place: "Parking", fx: .58, fy: .64,
+      steps: ["Résultat : un tuyau, branché sur le réservoir. Destination : inconnue. Intention : inconnue.",
+              "Résultat : toujours un tuyau. En plus gros."] },
+    rue:     { src: "img/cam-rue.jpg",     cam: "CAM 04", place: "Rue", fx: .19, fy: .38,
+      steps: ["Résultat : une enceinte Bluetooth. Volume estimé : abusif.",
+              "Résultat : on entend presque la musique. Personne ne veut savoir laquelle."] }
+  };
+  const ZOOMS = [2.6, 5.5];
+  const STOP = "Le logiciel refuse de zoomer davantage. Il a vu des choses.";
+  const lab = $("lab"), cv = $("lab-canvas"), ctx = cv.getContext("2d");
+  const off = document.createElement("canvas"), octx = off.getContext("2d");
+  const labImg = new Image();
+  const btnEnh = $("lab-enhance"), log = $("lab-log"), live = $("lab-live");
+  let cur = null, stage = 0, zoom = 1, busy = false, opener = null, typeTimer = null;
+  const tapeColor = getComputedStyle(document.documentElement).getPropertyValue("--tape").trim() || "#fedd04";
+
+  function sizeCanvas(){
+    const r = cv.parentElement.getBoundingClientRect();
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = Math.max(320, Math.round(r.width * dpr));
+    cv.height = Math.round(cv.width * 9 / 16);
+  }
+  function draw(z, block){
+    const W = cv.width, H = cv.height, iw = labImg.naturalWidth, ih = labImg.naturalHeight;
+    if (!iw || !cur) return;
+    const sw = iw / z, sh = ih / z;
+    const sx = Math.min(Math.max(cur.fx * iw - sw / 2, 0), iw - sw);
+    const sy = Math.min(Math.max(cur.fy * ih - sh / 2, 0), ih - sh);
+    if (block > 1) {
+      const tw = Math.max(2, Math.round(W / block)), th = Math.max(2, Math.round(H / block));
+      off.width = tw; off.height = th;
+      octx.drawImage(labImg, sx, sy, sw, sh, 0, 0, tw, th);
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(off, 0, 0, tw, th, 0, 0, W, H);
+    } else {
+      ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(labImg, sx, sy, sw, sh, 0, 0, W, H);
+    }
+    const u = W / 100;
+    const px = (cur.fx * iw - sx) / sw * W, py = (cur.fy * ih - sy) / sh * H;
+    const bs = u * (z < 1.5 ? 13 : 24), arm = bs * .28;
+    ctx.save();
+    ctx.strokeStyle = tapeColor; ctx.lineWidth = Math.max(2, u * .35);
+    ctx.beginPath();
+    [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(function(s){
+      const cx = px + s[0] * bs / 2, cy = py + s[1] * bs / 2;
+      ctx.moveTo(cx, cy - s[1] * arm); ctx.lineTo(cx, cy); ctx.lineTo(cx - s[0] * arm, cy);
+    });
+    ctx.stroke();
+    ctx.font = Math.round(u * 3.4) + "px VT323, monospace";
+    ctx.textBaseline = "top";
+    const label = cur.cam + " · ZOOM ×" + z.toFixed(1) + (block > 1 ? " · TRAITEMENT…" : "");
+    ctx.fillStyle = "rgba(0,0,0,.6)";
+    ctx.fillRect(u * 1.5, u * 1.5, ctx.measureText(label).width + u * 2, u * 4.4);
+    ctx.fillStyle = tapeColor;
+    ctx.fillText(label, u * 2.5, u * 2);
+    ctx.restore();
+  }
+  function say(text){
+    clearInterval(typeTimer);
+    live.textContent = text;
+    if (reduced) { log.textContent = text; return; }
+    let i = 0; log.textContent = "";
+    typeTimer = setInterval(function(){ i += 2; log.textContent = text.slice(0, i); if (i >= text.length) clearInterval(typeTimer); }, 22);
+  }
+  function animateTo(z1, done){
+    if (reduced) { zoom = z1; draw(z1, 1); done(); return; }
+    const z0 = zoom, t0 = performance.now(), D = 1300, blocks = [30, 22, 15, 10, 7, 4, 2, 1];
+    busy = true; btnEnh.disabled = true;
+    (function frame(now){
+      const t = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - t, 3);
+      const z = z0 + (z1 - z0) * e;
+      draw(z, blocks[Math.min(blocks.length - 1, Math.floor(t * blocks.length))]);
+      if (t < 1) requestAnimationFrame(frame);
+      else { zoom = z1; draw(z1, 1); busy = false; btnEnh.disabled = false; done(); }
+    })(t0);
+  }
+  function openLab(key, from){
+    cur = FEEDS[key]; if (!cur) return;
+    opener = from; stage = 0; zoom = 1;
+    $("lab-title").textContent = "Analyse · " + cur.cam + " · " + cur.place;
+    btnEnh.textContent = "Améliorer l’image"; btnEnh.disabled = false;
+    log.textContent = "Chargement du flux…"; live.textContent = "";
+    lab.hidden = false; document.documentElement.style.overflow = "hidden";
+    sizeCanvas();
+    labImg.onload = function(){ draw(1, 1); say("Image chargée. Zone d’intérêt repérée. Prête pour analyse."); };
+    labImg.src = cur.src;
+    if (labImg.complete && labImg.naturalWidth) labImg.onload();
+    btnEnh.focus();
+  }
+  function closeLab(){
+    lab.hidden = true; document.documentElement.style.overflow = "";
+    clearInterval(typeTimer);
+    if (opener) opener.focus();
+  }
+  document.querySelectorAll(".feed").forEach(function(b){ b.addEventListener("click", function(){ openLab(b.dataset.feed, b); }); });
+  $("lab-close").addEventListener("click", closeLab);
+  lab.addEventListener("click", function(e){ if (e.target === lab) closeLab(); });
+  document.addEventListener("keydown", function(e){
+    if (lab.hidden) return;
+    if (e.key === "Escape") closeLab();
+    if (e.key === "Tab") {
+      const f = [$("lab-close"), btnEnh];
+      if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[1].focus(); }
+      else if (!e.shiftKey && document.activeElement === f[1]) { e.preventDefault(); f[0].focus(); }
+    }
+  });
+  window.addEventListener("resize", function(){ if (!lab.hidden && cur) { sizeCanvas(); draw(zoom, 1); } });
+  btnEnh.addEventListener("click", function(){
+    if (busy || !cur) return;
+    if (stage >= 3) { stage = 0; zoom = 1; draw(1, 1); say("Image réinitialisée. On reprend calmement."); btnEnh.textContent = "Améliorer l’image"; return; }
+    if (stage === 2) { stage = 3; say(STOP); btnEnh.textContent = "Recommencer"; return; }
+    say("Amélioration en cours…");
+    const s = stage;
+    animateTo(ZOOMS[s], function(){
+      say(cur.steps[s]); stage = s + 1;
+      btnEnh.textContent = stage === 1 ? "Améliorer encore" : "Améliorer encore (vraiment)";
+    });
+  });
+
+  /* ---------- relecture NVR ---------- */
+  const EVENTS = [
+    { t: "21:13:27", cam: "CAM 02", img: "img/tl-2113.jpg", title: "Collage d’affiches",
+      alt: "Caméra 02, 21:13:27 : deux agentes collent une affiche CVL à l’entrée",
+      text: "Les agentes Zeineb et Lemis collent leurs affiches de campagne à l’entrée. Comportement exemplaire. Rien à signaler, sauf un talent certain pour le scotch." },
+    { t: "21:14:19", cam: "CAM 07", img: "img/tl-2114.jpg", title: "Le Fiorino",
+      alt: "Caméra 07, 21:14:19 : un Fiorino blanc stationné, feux allumés, un tuyau sort du réservoir",
+      text: "Un Fiorino blanc stationne, feux allumés. Un tuyau sort du réservoir. Il ne bougera pas de la soirée." },
+    { t: "22:46:32", cam: "CAM 02", img: "img/tl-2246.jpg", title: "Lecture attentive",
+      alt: "Caméra 02, 22:46:32 : deux garçons examinent des affiches CVL devant l’entrée lycéens",
+      text: "Deux individus étudient les affiches CVL de très près. L’un a les cheveux bruns et des lunettes. L’avis de recherche de Sneaky dit, mot pour mot : cheveux bruns, lunettes." },
+    { t: "22:47:16", cam: "CAM 05", img: "img/tl-2247a.jpg", title: "Toujours le Fiorino",
+      alt: "Caméra 05, 22:47:16 : le Fiorino blanc est toujours garé au même endroit",
+      text: "Le Fiorino est toujours là. Le tuyau aussi. Personne ne fait le plein à 22 h 47." },
+    { t: "22:47:58", cam: "CAM 05", img: "img/tl-2247b.jpg", title: "Assaut du portail",
+      alt: "Caméra 05, 22:47:58 : un groupe déguisé colle des feuilles sur le portail avec un outil en bois",
+      text: "Un groupe en tenues improbables prend le portail d’assaut : chapeau de brousse, robe de chambre, poupée rose, outil en bois. Détail : 42 secondes plus tôt, la CAM 05 filmait le Fiorino. Quelqu’un a touché aux câbles." },
+    { t: "22:48:03", cam: "CAM 07", img: "img/tl-2248a.jpg", title: "Rassemblement",
+      alt: "Caméra 07, 22:48:03 : trois garçons au milieu de la rue, l’un tient une enceinte",
+      text: "Trois individus au milieu de la rue, dont un casqué. Le t-shirt bleu tient une enceinte. Ambiance : suspecte." },
+    { t: "22:48:27", cam: "CAM 09", img: "img/tl-2248b.jpg", title: "Dernière image",
+      alt: "Caméra 09, 22:48:27 : la même scène de rue sous un autre angle",
+      text: "Même scène, autre angle. Le t-shirt bleu était devant les affiches deux minutes plus tôt. Ensuite, plus rien. Les caméras ont arrêté de tourner, ou elles ont eu peur." }
+  ];
+  EVENTS.forEach(function(e){ const im = new Image(); im.src = e.img; });
+  const toPct = function(t){ const p = t.split(":").map(Number); return ((p[0] * 3600 + p[1] * 60 + p[2]) - 21 * 3600) / 7200 * 100; };
+  const track = $("scrub-track"), head = $("scrub-head"), fill = $("scrub-fill");
+  const list = $("events"), screen = $("nvr-screen");
+  EVENTS.forEach(function(e, i){
+    const m = document.createElement("span"); m.className = "scrub-mark"; m.style.left = toPct(e.t) + "%"; track.insertBefore(m, head);
+    const li = document.createElement("li");
+    const b = document.createElement("button"); b.type = "button";
+    b.innerHTML = '<span class="ev-t"></span><span></span><span></span>';
+    b.children[0].textContent = e.t; b.children[1].textContent = e.cam.replace("CAM ", "C"); b.children[2].textContent = e.title;
+    b.addEventListener("click", function(){ stop(); show(i); });
+    li.appendChild(b); list.appendChild(li);
+  });
+  let ev = 0, timer = null;
+  function show(i){
+    ev = (i + EVENTS.length) % EVENTS.length;
+    const e = EVENTS[ev], img = $("nvr-img");
+    if (!reduced) { screen.classList.add("switching"); setTimeout(function(){ screen.classList.remove("switching"); }, 170); }
+    img.src = e.img; img.alt = e.alt;
+    $("nvr-ts").textContent = "02-10-2026 " + e.t;
+    $("nvr-chan").textContent = e.cam + " · " + (ev + 1) + "/" + EVENTS.length;
+    $("nvr-title").textContent = e.title;
+    $("nvr-text").textContent = e.text;
+    const p = toPct(e.t);
+    head.style.left = p + "%"; fill.style.width = p + "%";
+    Array.prototype.forEach.call(list.querySelectorAll("button"), function(b, k){ b.setAttribute("aria-current", k === ev ? "true" : "false"); });
+  }
+  function stop(){ clearInterval(timer); timer = null; const b = $("nvr-play"); b.setAttribute("aria-pressed", "false"); b.textContent = "▶ Lecture"; $("nvr-state").textContent = "Vitesse ×1 · pause"; }
+  function play(){ const b = $("nvr-play"); b.setAttribute("aria-pressed", "true"); b.textContent = "❚❚ Pause"; $("nvr-state").textContent = "Vitesse ×1 · lecture"; timer = setInterval(function(){ show(ev + 1); }, 5200); }
+  $("nvr-play").addEventListener("click", function(){ if (timer) stop(); else { show(ev + 1); play(); } });
+  $("nvr-prev").addEventListener("click", function(){ stop(); show(ev - 1); });
+  $("nvr-next").addEventListener("click", function(){ stop(); show(ev + 1); });
+  track.addEventListener("click", function(e){
+    const r = track.getBoundingClientRect(), p = (e.clientX - r.left) / r.width * 100;
+    let best = 0, bd = Infinity;
+    EVENTS.forEach(function(x, k){ const d = Math.abs(toPct(x.t) - p); if (d < bd) { bd = d; best = k; } });
+    stop(); show(best);
+  });
+  show(0);
+
+  /* ---------- tapissage ---------- */
+  const SUSPECTS = [
+    { id: "duo", n: 1, name: "Autre duo CVL", sub: "Suspects multiples",
+      photos: ["img/s-duo1.jpg", "img/s-duo2.jpg", "img/s-duo3.jpg", "img/s-duo4.jpg", "img/s-duo5.jpg"],
+      casier: "Plusieurs duos, un seul mobile : éliminer la concurrence avant le vote. Le plus vieux mobile du monde.",
+      verdict: "Classique. On fait disparaître la concurrence et on espère que personne ne remarque. Les agentes avaient un pressentiment." },
+    { id: "hamza", n: 2, name: "Hamza", sub: "En costard",
+      photos: ["img/s-hamza.jpg"],
+      casier: "Mey7ebch y7el portail. Costard impeccable, lunettes noires. Alibi : « j’étais pas là ». Vérifié par : personne.",
+      verdict: "Hamza affirme qu’il était « juste à côté ». À côté de quoi, il ne l’a jamais précisé." },
+    { id: "talel-hajer", n: 3, name: "Talel w Hajer", sub: "Derrière la caisse",
+      photos: ["img/s-talel.jpg"],
+      casier: "A augmenté les prix des tacos. Toujours derrière la caisse, voit passer tout le lycée, affirme n’avoir rien vu.",
+      verdict: "Son alibi : la caisse. Le seul témoin de l’alibi : la caisse. Les agentes restent prudentes." },
+    { id: "ktates", n: 4, name: "Ktates Caillou", sub: "En larmes 🐀",
+      photos: ["img/s-ktates.jpg"],
+      casier: "🐀🐀 Présent partout, vu nulle part. A fondu en larmes avant même la première question. 🐀🐀",
+      verdict: "Trois heures d’interrogatoire. Trois heures de larmes. Zéro aveu. L’enquête piétine." }
+  ];
+  const wrapS = $("suspects");
+  SUSPECTS.forEach(function(s, i){
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "suspect"; b.dataset.id = s.id;
+    b.setAttribute("role", "radio"); b.setAttribute("aria-checked", "false"); b.tabIndex = i === 0 ? 0 : -1;
+    b.setAttribute("aria-label", "Suspect " + s.n + " : " + s.name + ", " + s.sub.toLowerCase());
+    const mug = document.createElement("span"); mug.className = "mug";
+    s.photos.forEach(function(src, k){
+      const im = document.createElement("img");
+      im.src = src; im.alt = ""; im.loading = "lazy"; im.decoding = "async"; im.width = 600; im.height = 800;
+      if (s.photos.length > 1) im.className = k === 0 ? "alt on" : "alt";
+      mug.appendChild(im);
+    });
+    const num = document.createElement("span"); num.className = "mug-n"; num.textContent = "N°" + s.n; mug.appendChild(num);
+    if (s.photos.length > 1) { const c = document.createElement("span"); c.className = "mug-count"; c.textContent = "1/" + s.photos.length; mug.appendChild(c); }
+    const plac = document.createElement("span"); plac.className = "placard"; plac.textContent = s.name;
+    const sub = document.createElement("small"); sub.textContent = s.sub; plac.appendChild(sub);
+    b.appendChild(mug); b.appendChild(plac);
+    b.addEventListener("click", function(){ reopenIfChanged(s.id); select(s.id, true); });
+    wrapS.appendChild(b);
+  });
+  if (!reduced) {
+    setInterval(function(){
+      if (document.hidden) return;
+      wrapS.querySelectorAll(".mug").forEach(function(m){
+        const ims = m.querySelectorAll("img.alt"); if (ims.length < 2) return;
+        let k = Array.prototype.findIndex.call(ims, function(im){ return im.classList.contains("on"); });
+        ims[k].classList.remove("on"); k = (k + 1) % ims.length; ims[k].classList.add("on");
+        const c = m.querySelector(".mug-count"); if (c) c.textContent = (k + 1) + "/" + ims.length;
+      });
+    }, 2600);
+  }
+  wrapS.addEventListener("keydown", function(e){
+    const keys = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+    if (!(e.key in keys)) return;
+    e.preventDefault();
+    const idx = Math.max(0, SUSPECTS.findIndex(function(s){ return s.id === pick; }));
+    const next = SUSPECTS[(idx + keys[e.key] + SUSPECTS.length) % SUSPECTS.length];
+    reopenIfChanged(next.id); select(next.id, true);
+  });
+  function reopenIfChanged(id){
+    if ($("verdict").hidden || id === myVote) return;
+    $("verdict").hidden = true; accuse.hidden = false;
+    accuse.textContent = "Signer ma nouvelle déposition";
+    markGuilty(null);
+  }
+
+  let pick = null, myVote = null;
+  const accuse = $("accuse");
+  function byId(id){ return SUSPECTS.find(function(s){ return s.id === id; }); }
+  function select(id, focus){
+    pick = id;
+    const s = byId(id);
+    wrapS.classList.add("has-pick");
+    wrapS.querySelectorAll(".suspect").forEach(function(b){
+      const on = b.dataset.id === id;
+      b.setAttribute("aria-checked", on ? "true" : "false"); b.tabIndex = on ? 0 : -1;
+      if (on && focus) b.focus();
+    });
+    const c = $("casier");
+    c.innerHTML = '<p class="kicker"></p><p></p>';
+    c.children[0].textContent = "Casier n°" + s.n + " · " + s.name;
+    c.children[1].textContent = s.casier;
+    if ($("verdict").hidden) accuse.disabled = false;
+  }
+  function markGuilty(id){
+    wrapS.querySelectorAll(".guilty").forEach(function(g){ g.remove(); });
+    if (!id) return;
+    const b = wrapS.querySelector('[data-id="' + id + '"]');
+    if (b) { const g = document.createElement("span"); g.className = "guilty"; g.textContent = "Désigné"; b.appendChild(g); }
+  }
+  function showVerdict(id, note){
+    const s = byId(id); if (!s) return;
+    $("verdict-title").textContent = "Tu accuses : " + s.name;
+    $("verdict-text").textContent = s.verdict;
+    $("verdict-note").textContent = note || "";
+    $("verdict").hidden = false; accuse.hidden = true;
+    markGuilty(id);
+  }
+
+  /* registre central : API du site */
+  const LS = "cvl-affaire-vote", LS_DEV = "cvl-affaire-appareil";
+  const store = { counts: null, total: 0 };
+  function lsGet(k){ try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function lsSet(k, v){ try { localStorage.setItem(k, v); } catch (e) {} }
+  function deviceId(){
+    let d = lsGet(LS_DEV);
+    if (!d || !/^[A-Za-z0-9-]{8,64}$/.test(d)) {
+      d = (window.crypto && typeof crypto.randomUUID === "function") ? crypto.randomUUID() : (Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 12));
+      lsSet(LS_DEV, d);
+    }
+    return d;
+  }
+  function renderResults(){
+    const box = $("results");
+    if (!store.counts || !myVote || store.total === 0) { box.hidden = true; return; }
+    box.hidden = false;
+    $("res-total").textContent = store.total + (store.total > 1 ? " dépositions" : " déposition");
+    const rows = $("res-rows");
+    if (!rows.children.length) {
+      SUSPECTS.forEach(function(s){
+        const r = document.createElement("div"); r.className = "res-row"; r.dataset.id = s.id;
+        r.innerHTML = '<span class="res-name"></span><span class="res-num"></span><span class="res-bar"><i></i></span>';
+        r.querySelector(".res-name").textContent = s.name;
+        rows.appendChild(r);
+      });
+    }
+    Array.prototype.forEach.call(rows.children, function(r){
+      const n = store.counts[r.dataset.id] || 0, pct = store.total ? Math.round(n / store.total * 100) : 0;
+      r.querySelector(".res-num").textContent = n + " · " + pct + " %";
+      r.querySelector(".res-bar i").style.width = pct + "%";
+      r.classList.toggle("mine", r.dataset.id === myVote);
+    });
+  }
+  async function loadResults(){
+    try {
+      const r = await fetch("/api/resultats", { headers: { accept: "application/json" } });
+      if (!r.ok) return;
+      const j = await r.json();
+      if (j && j.counts) { store.counts = j.counts; store.total = j.total || 0; renderResults(); }
+    } catch (e) {}
+  }
+  const voteError = $("vote-error");
+  accuse.addEventListener("click", async function(){
+    if (!pick) return;
+    const id = pick, label = accuse.textContent;
+    accuse.disabled = true; accuse.textContent = "Transmission…"; voteError.hidden = true;
+    try {
+      const r = await fetch("/api/vote", {
+        method: "POST",
+        headers: { "content-type": "application/json", accept: "application/json" },
+        body: JSON.stringify({ pick: id, device: deviceId(), pseudo: $("pseudo").value })
+      });
+      let j = {};
+      try { j = await r.json(); } catch (e) {}
+      if (!r.ok) throw new Error(j.erreur || "Le registre central ne répond pas. Réessaie dans un instant.");
+      store.counts = j.counts || null; store.total = j.total || 0;
+    } catch (e) {
+      voteError.textContent = (e instanceof TypeError) ? "Connexion perdue. Vérifie ton réseau et réessaie." : e.message;
+      voteError.hidden = false;
+      accuse.disabled = false; accuse.textContent = label;
+      return;
+    }
+    myVote = id; lsSet(LS, id);
+    accuse.textContent = label;
+    showVerdict(id, "Ta déposition est versée au registre central.");
+    renderResults();
+  });
+  $("change-vote").addEventListener("click", function(){
+    $("verdict").hidden = true; accuse.hidden = false; accuse.disabled = !pick;
+    accuse.textContent = "Signer ma nouvelle déposition";
+    markGuilty(null);
+    const b = wrapS.querySelector('[aria-checked="true"]') || wrapS.querySelector(".suspect");
+    if (b) b.focus();
+  });
+
+  const saved = lsGet(LS);
+  if (saved && byId(saved)) {
+    myVote = saved; select(saved, false);
+    showVerdict(saved, "Déposition déjà enregistrée. Tu peux encore changer d’avis.");
+    loadResults();
+  }
+  setInterval(function(){ if (myVote && !document.hidden) loadResults(); }, 30000);
+})();
+</script>
+
+</body>
+</html>

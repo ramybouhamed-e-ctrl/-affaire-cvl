@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0d0a">
+<title>Registre central · Brigade CVL</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@900&family=Courier+Prime:wght@400;700&family=VT323&display=swap">
+<style>
+/* Layout : une seule colonne de console, accès par clé puis registre (totaux, puis dépositions). */
+:root{
+  --night:#0b0d0a; --console:#141811; --console-2:#1b2017; --line:#2d3528;
+  --tape:#fedd04; --tape-ink:#111210; --phosphor:#d6ecca; --muted:#919c89;
+  --paper:#f3ecda; --ink:#1d1b16; --ink-soft:#5e5749; --stamp:#d21f2e;
+  --f-display:"Big Shoulders Stencil Display","Impact","Arial Narrow",sans-serif;
+  --f-type:"Courier Prime","Courier New",ui-monospace,monospace;
+  --f-cctv:"VT323",ui-monospace,"Courier New",monospace;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--night);color:var(--phosphor);font:16px/1.5 var(--f-type)}
+:focus-visible{outline:3px dashed var(--tape);outline-offset:3px}
+.wrap{max-width:760px;margin-inline:auto;padding-inline:16px;padding-block:calc(28px + env(safe-area-inset-top,0px)) 60px;display:grid;gap:22px}
+.kicker{display:flex;align-items:center;gap:.5em;margin:0;font-family:var(--f-cctv);font-size:1.2rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tape)}
+.kicker::before{content:"";width:.55em;height:.55em;background:currentColor}
+h1{margin:.3rem 0 0;font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(2.6rem,11vw,4.2rem);line-height:.88;color:var(--paper)}
+.lede{margin:.6rem 0 0;color:var(--muted);max-width:52ch}
+.card{padding:18px;background:var(--console);border:1px solid var(--line);border-radius:6px}
+form{display:grid;gap:12px}
+label{font-family:var(--f-cctv);font-size:1.15rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+input[type=password]{width:100%;min-height:48px;padding:.5rem .75rem;border:1px solid var(--line);border-radius:3px;background:var(--night);color:var(--paper);font:inherit;font-size:1rem}
+.check{display:flex;gap:.5rem;align-items:center;font-family:var(--f-type);font-size:.9rem;letter-spacing:0;text-transform:none;color:var(--phosphor)}
+.check input{width:20px;height:20px;accent-color:var(--tape)}
+.btn{justify-self:start;min-height:48px;padding:.5em 1.1em;border:2px solid var(--tape-ink);border-radius:2px;background:var(--tape);color:var(--tape-ink);font-family:var(--f-display);font-weight:900;font-size:1.15rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:4px 4px 0 var(--stamp)}
+.btn:disabled{opacity:.6;cursor:wait}
+.ghost{min-height:40px;padding:.3rem .8rem;border:1px solid var(--line);border-radius:3px;background:var(--console-2);color:var(--phosphor);font-family:var(--f-cctv);font-size:1.15rem;text-transform:uppercase;cursor:pointer}
+.err{margin:0;padding:10px 12px;background:var(--stamp);color:var(--paper);font-size:.92rem}
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.total{margin:0;font-family:var(--f-display);font-weight:900;font-size:3rem;line-height:1;color:var(--paper)}
+.total span{display:block;font-family:var(--f-cctv);font-weight:400;font-size:1.1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rows{display:grid;gap:14px;margin-top:16px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:baseline}
+.row b{font-size:.98rem;color:var(--paper)}
+.row .num{font-family:var(--f-cctv);font-size:1.25rem;font-variant-numeric:tabular-nums}
+.bar{grid-column:1 / -1;height:16px;background:var(--console-2);border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;background:repeating-linear-gradient(-45deg,var(--tape) 0 9px,var(--tape-ink) 9px 18px)}
+.row.lead b::after{content:" · en tête";font-weight:400;color:var(--tape)}
+.list{display:grid;gap:6px;margin:14px 0 0;padding:0;list-style:none}
+.list li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;align-items:baseline;padding:8px 10px;background:var(--paper);color:var(--ink);border-radius:2px;font-size:.92rem}
+.list time{font-family:var(--f-cctv);font-size:1.05rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.list .who{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}
+.list .who.anon{font-weight:400;font-style:italic;color:var(--ink-soft)}
+.list .pick{grid-column:2;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;color:var(--stamp)}
+.empty{color:var(--muted)}
+.foot{font-size:.82rem;color:var(--muted)}
+.foot a{color:var(--tape)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="kicker">Accès agentes</p>
+    <h1>Registre central</h1>
+    <p class="lede">Toutes les dépositions de l’affaire Sneaky &amp; Mergueza, en direct.</p>
+  </header>
+
+  <section class="card" id="login">
+    <form id="form">
+      <label for="cle">Clé d’accès</label>
+      <input id="cle" type="password" autocomplete="current-password" required>
+      <label class="check"><input type="checkbox" id="remember" checked>Se souvenir sur cet appareil</label>
+      <button class="btn" type="submit" id="open">Ouvrir le registre</button>
+      <p class="err" id="err" role="alert" hidden></p>
+    </form>
+  </section>
+
+  <section class="card" id="board" hidden aria-live="polite">
+    <div class="top">
+      <p class="total" id="total">0<span>dépositions</span></p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="ghost" type="button" id="refresh">Actualiser</button>
+        <button class="ghost" type="button" id="logout">Verrouiller</button>
+      </div>
+    </div>
+    <div class="rows" id="rows"></div>
+    <p class="kicker" style="margin-top:26px">Dépositions, des plus récentes aux plus anciennes</p>
+    <ul class="list" id="list"></ul>
+    <p class="empty" id="empty" hidden>Aucune déposition pour l’instant. Partage le lien.</p>
+  </section>
+
+  <p class="foot">Le registre se met à jour quand tu appuies sur Actualiser. <a href="/">Retour à l’affaire</a></p>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  const NOMS = { "duo": "Autre duo CVL", "hamza": "Hamza", "talel-hajer": "Talel w Hajer", "ktates": "Ktates Caillou" };
+  const ORDRE = ["duo", "hamza", "talel-hajer", "ktates"];
+  const LS = "cvl-registre-cle";
+  let cle = "";
+  let fmt = null;
+  try { fmt = new Intl.DateTimeFormat("fr-FR", { timeZone: "Africa/Tunis", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }); } catch (e) {}
+
+  function render(data){
+    $("total").firstChild.textContent = data.total;
+    $("total").querySelector("span").textContent = data.total > 1 ? "dépositions" : "déposition";
+    const max = Math.max.apply(null, ORDRE.map((id) => data.counts[id] || 0));
+    const rows = $("rows"); rows.textContent = "";
+    ORDRE.slice().sort((a, b) => (data.counts[b] || 0) - (data.counts[a] || 0)).forEach(function(id){
+      const n = data.counts[id] || 0, pct = data.total ? Math.round(n / data.total * 100) : 0;
+      const r = document.createElement("div"); r.className = "row" + (n > 0 && n === max ? " lead" : "");
+      r.innerHTML = '<b></b><span class="num"></span><span class="bar"><i></i></span>';
+      r.querySelector("b").textContent = NOMS[id];
+      r.querySelector(".num").textContent = n + " · " + pct + " %";
+      r.querySelector("i").style.width = pct + "%";
+      rows.appendChild(r);
+    });
+    const list = $("list"); list.textContent = "";
+    data.votes.forEach(function(v){
+      const li = document.createElement("li");
+      li.innerHTML = '<time></time><span class="who"></span><span class="pick"></span>';
+      const d = v.at ? new Date(v.at) : null;
+      li.querySelector("time").textContent = d && fmt ? fmt.format(d).replace(",", "") : "—";
+      const who = li.querySelector(".who");
+      if (v.pseudo) who.textContent = v.pseudo; else { who.textContent = "Anonyme"; who.classList.add("anon"); }
+      li.querySelector(".pick").textContent = NOMS[v.pick] || v.pick;
+      list.appendChild(li);
+    });
+    $("empty").hidden = data.votes.length > 0;
+  }
+
+  async function ouvrir(){
+    const btn = $("open"); btn.disabled = true; $("err").hidden = true;
+    try {
+      const r = await fetch("/api/registre", { headers: { "x-cle": cle, accept: "application/json" }, cache: "no-store" });
+      let j = {}; try { j = await r.json(); } catch (e) {}
+      if (!r.ok) throw new Error(j.erreur || "Le registre ne répond pas. Réessaie dans un instant.");
+      render(j);
+      $("login").hidden = true; $("board").hidden = false;
+      try { if ($("remember").checked) localStorage.setItem(LS, cle); } catch (e) {}
+    } catch (e) {
+      $("login").hidden = false; $("board").hidden = true;
+      $("err").textContent = (e instanceof TypeError) ? "Connexion perdue. Vérifie ton réseau et réessaie." : e.message;
+      $("err").hidden = false;
+      if (/Clé incorrecte/.test(e.message)) { try { localStorage.removeItem(LS); } catch (x) {} }
+    } finally { btn.disabled = false; }
+  }
+
+  $("form").addEventListener("submit", function(e){ e.preventDefault(); cle = $("cle").value.trim(); if (cle) ouvrir(); });
+  $("refresh").addEventListener("click", ouvrir);
+  $("logout").addEventListener("click", function(){
+    try { localStorage.removeItem(LS); } catch (e) {}
+    cle = ""; $("cle").value = ""; $("board").hidden = true; $("login").hidden = false; $("cle").focus();
+  });
+  try { const k = localStorage.getItem(LS); if (k) { cle = k; ouvrir(); } } catch (e) {}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Site « Affaire Sneaky & Mergueza » — rien à configurer à la main.
+[build]
+  publish   = "public"
+  functions = "netlify/functions"
+  command   = "node scripts/prepare.mjs"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/registre*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Referrer-Policy = "no-referrer"
